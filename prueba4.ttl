@@ -1,0 +1,29 @@
+@prefix n4sch: <neo4j://graph.schema#> .
+@prefix n4ind: <neo4j://graph.individuals#> .
+
+n4ind:3 a n4sch:Coordinador;
+  n4sch:apellido "Gonzales";
+  n4sch:edad "40"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:name "Carlos";
+  n4sch:Trabaja_en n4ind:0 .
+
+n4ind:0 a n4sch:Institucion;
+  n4sch:name "Ciudadela" .
+
+n4ind:4 a n4sch:Coordinador;
+  n4sch:edad "42"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:apellido "Ramirez";
+  n4sch:Trabaja_en n4ind:1;
+  n4sch:name "Javier" .
+
+n4ind:1 a n4sch:Institucion;
+  n4sch:name "Industrial" .
+
+n4ind:5 a n4sch:Coordinador;
+  n4sch:apellido "Lopez";
+  n4sch:name "Camila";
+  n4sch:Trabaja_en n4ind:2;
+  n4sch:edad "37"^^<http://www.w3.org/2001/XMLSchema#long> .
+
+n4ind:2 a n4sch:Institucion;
+  n4sch:name "Normal" .
