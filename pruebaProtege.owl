@@ -1,0 +1,236 @@
+@prefix : <http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3> .
+
+<http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#esProfesorDe
+:esProfesorDe rdf:type owl:ObjectProperty ;
+              rdfs:domain :Profesor ;
+              rdfs:range :Materia .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#estaInscritoEn
+:estaInscritoEn rdf:type owl:ObjectProperty ;
+                rdfs:domain :Alumno ;
+                rdfs:range :Materia .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tomaClasesCon
+:tomaClasesCon rdf:type owl:ObjectProperty ;
+               rdfs:domain :Alumno ;
+               rdfs:range :Profesor .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tieneClaveMateria
+:tieneClaveMateria rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Materia ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tieneCreditos
+:tieneCreditos rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Materia ;
+               rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tieneEdad
+:tieneEdad rdf:type owl:DatatypeProperty ;
+           rdfs:domain :persona ;
+           rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tieneGenero
+:tieneGenero rdf:type owl:DatatypeProperty ;
+             rdfs:domain :persona ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tieneMatricula
+:tieneMatricula rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Alumno ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tieneNombreMateria
+:tieneNombreMateria rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Materia ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tieneNombrePersona
+:tieneNombrePersona rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :persona ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#tienePeso
+:tienePeso rdf:type owl:DatatypeProperty ;
+           rdfs:domain :persona ;
+           rdfs:range xsd:float .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Academico
+:Academico rdf:type owl:Class ;
+           rdfs:subClassOf :Empleado .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Administrativo
+:Administrativo rdf:type owl:Class ;
+                rdfs:subClassOf :Empleado .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Alumno
+:Alumno rdf:type owl:Class ;
+        rdfs:subClassOf :persona .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Coordinador_Academico
+:Coordinador_Academico rdf:type owl:Class ;
+                       rdfs:subClassOf :Academico .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Empleado
+:Empleado rdf:type owl:Class ;
+          rdfs:subClassOf :persona .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Jefe_Departamento
+:Jefe_Departamento rdf:type owl:Class ;
+                   rdfs:subClassOf :Academico .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Materia
+:Materia rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Profesor
+:Profesor rdf:type owl:Class ;
+          rdfs:subClassOf :Academico .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#Visitante
+:Visitante rdf:type owl:Class ;
+           rdfs:subClassOf :persona .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#persona
+:persona rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#alum001
+:alum001 rdf:type owl:NamedIndividual ,
+                  :Alumno ;
+         :estaInscritoEn :mat001 ,
+                         :mat002 ;
+         :tomaClasesCon :prof001 ,
+                        :prof002 ;
+         :tieneEdad "22"^^xsd:int ;
+         :tieneGenero "Masculino" ;
+         :tieneMatricula "matt001" ;
+         :tieneNombrePersona "PepitoPerez" ;
+         :tienePeso "71.3"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#alum002
+:alum002 rdf:type owl:NamedIndividual ,
+                  :Alumno ;
+         :estaInscritoEn :mat003 ;
+         :tomaClasesCon :prof003 ;
+         :tieneEdad "19"^^xsd:int ;
+         :tieneGenero "Femenino" ;
+         :tieneMatricula "matt002" ;
+         :tieneNombrePersona "Valentina" ;
+         :tienePeso "65.5"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#alum003
+:alum003 rdf:type owl:NamedIndividual ,
+                  :Alumno ;
+         :estaInscritoEn :mat002 ,
+                         :mat003 ;
+         :tomaClasesCon :prof001 ,
+                        :prof003 ;
+         :tieneEdad "19"^^xsd:int ;
+         :tieneGenero "Masculino" ;
+         :tieneMatricula "matt003" ;
+         :tieneNombrePersona "Daniela" ;
+         :tienePeso "50.6"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#mat001
+:mat001 rdf:type owl:NamedIndividual ,
+                 :Materia ;
+        :tieneClaveMateria "matri001" ;
+        :tieneCreditos "3"^^xsd:int ;
+        :tieneNombreMateria "ProgramacionWeb" .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#mat002
+:mat002 rdf:type owl:NamedIndividual ,
+                 :Materia ;
+        :tieneClaveMateria "mat002" ;
+        :tieneCreditos "2"^^xsd:int ;
+        :tieneNombreMateria "Redes" .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#mat003
+:mat003 rdf:type owl:NamedIndividual ,
+                 :Materia ;
+        :tieneClaveMateria "matt03" ;
+        :tieneCreditos "3"^^xsd:int ;
+        :tieneNombreMateria "Poe" .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#prof001
+:prof001 rdf:type owl:NamedIndividual ,
+                  :Profesor ;
+         :esProfesorDe :mat002 ;
+         :tieneEdad "50"^^xsd:int ;
+         :tieneGenero "Masculino" ;
+         :tieneNombrePersona "Freddy" ;
+         :tienePeso "70.5"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#prof002
+:prof002 rdf:type owl:NamedIndividual ,
+                  :Profesor ;
+         :esProfesorDe :mat001 ;
+         :tieneEdad "35"^^xsd:int ;
+         :tieneGenero "Masculino" ;
+         :tieneNombrePersona "Oscar" ;
+         :tienePeso "50.5"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ubita/ontologies/2022/9/untitled-ontology-3#prof003
+:prof003 rdf:type owl:NamedIndividual ,
+                  :Profesor ;
+         :esProfesorDe :mat003 ;
+         :tieneEdad "45"^^xsd:int ;
+         :tieneGenero "Femenino" ;
+         :tieneNombrePersona "Diana" ;
+         :tienePeso "45.5"^^xsd:float .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
