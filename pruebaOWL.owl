@@ -1,0 +1,76 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<neo4j://graph.schema#Coordinador> a owl:Class;
+  rdfs:label "Coordinador" .
+
+<neo4j://graph.schema#Dirige_a> a owl:ObjectProperty;
+  rdfs:range <neo4j://graph.schema#Profesor>;
+  rdfs:domain <neo4j://graph.schema#Coordinador>;
+  rdfs:label "Dirige_a" .
+
+<neo4j://graph.schema#Es_amigo_de> a owl:ObjectProperty;
+  rdfs:label "Es_amigo_de";
+  rdfs:domain <neo4j://graph.schema#Estudiante>;
+  rdfs:range <neo4j://graph.schema#Estudiante> .
+
+<neo4j://graph.schema#Ve> a owl:ObjectProperty;
+  rdfs:range <neo4j://graph.schema#Materia>;
+  rdfs:label "Ve";
+  rdfs:domain <neo4j://graph.schema#Estudiante> .
+
+<neo4j://graph.schema#Trabaja_en> a owl:ObjectProperty;
+  rdfs:domain <neo4j://graph.schema#Coordinador>, <neo4j://graph.schema#Profesor>;
+  rdfs:label "Trabaja_en";
+  rdfs:range <neo4j://graph.schema#Institucion> .
+
+<neo4j://graph.schema#apellido> a owl:DatatypeProperty;
+  rdfs:range <http://www.w3.org/2001/XMLSchema#string>;
+  rdfs:label "apellido";
+  rdfs:domain <neo4j://graph.schema#Coordinador> .
+
+<neo4j://graph.schema#edad> a owl:DatatypeProperty;
+  rdfs:label "edad";
+  rdfs:domain <neo4j://graph.schema#Coordinador>, <neo4j://graph.schema#Profesor>;
+  rdfs:range <http://www.w3.org/2001/XMLSchema#integer> .
+
+<neo4j://graph.schema#Imparte> a owl:ObjectProperty;
+  rdfs:label "Imparte";
+  rdfs:domain <neo4j://graph.schema#Profesor>;
+  rdfs:range <neo4j://graph.schema#Materia> .
+
+<neo4j://graph.schema#Tiene> a owl:ObjectProperty;
+  rdfs:label "Tiene";
+  rdfs:range <neo4j://graph.schema#Salon>;
+  rdfs:domain <neo4j://graph.schema#Institucion> .
+
+<neo4j://graph.schema#Estudiante> a owl:Class;
+  rdfs:label "Estudiante" .
+
+<neo4j://graph.schema#Estudia_en> a owl:ObjectProperty;
+  rdfs:label "Estudia_en";
+  rdfs:domain <neo4j://graph.schema#Estudiante>;
+  rdfs:range <neo4j://graph.schema#Institucion> .
+
+<neo4j://graph.schema#name> a owl:DatatypeProperty;
+  rdfs:domain <neo4j://graph.schema#Coordinador>, <neo4j://graph.schema#Profesor>, <neo4j://graph.schema#Materia>,
+    <neo4j://graph.schema#Salon>, <neo4j://graph.schema#Institucion>, <neo4j://graph.schema#Estudiante>;
+  rdfs:label "name";
+  rdfs:range <http://www.w3.org/2001/XMLSchema#string> .
+
+<neo4j://graph.schema#Profesor> a owl:Class;
+  rdfs:label "Profesor" .
+
+<neo4j://graph.schema#Institucion> a owl:Class;
+  rdfs:label "Institucion" .
+
+<neo4j://graph.schema#Se_dicta_en> a owl:ObjectProperty;
+  rdfs:label "Se_dicta_en";
+  rdfs:domain <neo4j://graph.schema#Materia>;
+  rdfs:range <neo4j://graph.schema#Salon> .
+
+<neo4j://graph.schema#Salon> a owl:Class;
+  rdfs:label "Salon" .
+
+<neo4j://graph.schema#Materia> a owl:Class;
+  rdfs:label "Materia" .
