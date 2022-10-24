@@ -1,0 +1,145 @@
+@prefix n4sch: <neo4j://graph.schema#> .
+@prefix n4ind: <neo4j://graph.individuals#> .
+
+n4ind:20 a n4sch:Salon;
+  n4sch:name "Sala de Artistica" .
+
+n4ind:0 a n4sch:Institucion;
+  n4sch:Tiene n4ind:20, n4ind:19, n4ind:18;
+  n4sch:name "Ciudadela" .
+
+n4ind:19 a n4sch:Salon;
+  n4sch:name "Sala de Matematica" .
+
+n4ind:18 a n4sch:Salon;
+  n4sch:name "Sala de Biologia" .
+
+n4ind:1 a n4sch:Institucion;
+  n4sch:name "Industrial";
+  n4sch:Tiene n4ind:19, n4ind:18 .
+
+n4ind:2 a n4sch:Institucion;
+  n4sch:name "Normal";
+  n4sch:Tiene n4ind:19 .
+
+n4ind:8 a n4sch:Profesor;
+  n4sch:name "Jose";
+  n4sch:edad "35"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:Imparte n4ind:15, n4ind:16;
+  n4sch:Trabaja_en n4ind:0 .
+
+n4ind:3 a n4sch:Coordinador;
+  n4sch:apellido "Gonzales";
+  n4sch:edad "40"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:name "Carlos";
+  n4sch:Dirige_a n4ind:8, n4ind:7, n4ind:6;
+  n4sch:Trabaja_en n4ind:0 .
+
+n4ind:7 a n4sch:Profesor;
+  n4sch:edad "32"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:name "Pedro";
+  n4sch:Imparte n4ind:17;
+  n4sch:Trabaja_en n4ind:0 .
+
+n4ind:6 a n4sch:Profesor;
+  n4sch:edad "27"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:name "Maria";
+  n4sch:Imparte n4ind:15, n4ind:14;
+  n4sch:Trabaja_en n4ind:0 .
+
+n4ind:4 a n4sch:Coordinador;
+  n4sch:edad "42"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:apellido "Ramirez";
+  n4sch:Dirige_a n4ind:11, n4ind:10, n4ind:9;
+  n4sch:name "Javier";
+  n4sch:Trabaja_en n4ind:1 .
+
+n4ind:11 a n4sch:Profesor;
+  n4sch:edad "35"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:name "Emma";
+  n4sch:Imparte n4ind:14;
+  n4sch:Trabaja_en n4ind:1 .
+
+n4ind:10 a n4sch:Profesor;
+  n4sch:edad "32"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:name "Valentin";
+  n4sch:Imparte n4ind:15;
+  n4sch:Trabaja_en n4ind:1 .
+
+n4ind:9 a n4sch:Profesor;
+  n4sch:name "Mariana";
+  n4sch:edad "27"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:Imparte n4ind:15, n4ind:16;
+  n4sch:Trabaja_en n4ind:1 .
+
+n4ind:5 a n4sch:Coordinador;
+  n4sch:Dirige_a n4ind:13, n4ind:12;
+  n4sch:apellido "Lopez";
+  n4sch:name "Camila";
+  n4sch:edad "37"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:Trabaja_en n4ind:2 .
+
+n4ind:13 a n4sch:Profesor;
+  n4sch:edad "32"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:name "Jorge";
+  n4sch:Imparte n4ind:15;
+  n4sch:Trabaja_en n4ind:2 .
+
+n4ind:12 a n4sch:Profesor;
+  n4sch:name "Erik";
+  n4sch:edad "27"^^<http://www.w3.org/2001/XMLSchema#long>;
+  n4sch:Imparte n4ind:16;
+  n4sch:Trabaja_en n4ind:2 .
+
+n4ind:15 a n4sch:Materia;
+  n4sch:name "Matematica";
+  n4sch:Se_dicta_en n4ind:19 .
+
+n4ind:14 a n4sch:Materia;
+  n4sch:name "Biologia";
+  n4sch:Se_dicta_en n4ind:18 .
+
+n4ind:17 a n4sch:Materia;
+  n4sch:name "Artistica";
+  n4sch:Se_dicta_en n4ind:20 .
+
+n4ind:16 a n4sch:Materia;
+  n4sch:name "Geometria";
+  n4sch:Se_dicta_en n4ind:19 .
+
+n4ind:23 a n4sch:Estudiante;
+  n4sch:name "Jose";
+  n4sch:Ve n4ind:15;
+  n4sch:Estudia_en n4ind:1 .
+
+n4ind:21 a n4sch:Estudiante;
+  n4sch:name "Saul";
+  n4sch:Es_amigo_de n4ind:23;
+  n4sch:Ve n4ind:15;
+  n4sch:Estudia_en n4ind:0 .
+
+n4ind:22 a n4sch:Estudiante;
+  n4sch:name "Gloria";
+  n4sch:Ve n4ind:15;
+  n4sch:Estudia_en n4ind:0 .
+
+n4ind:24 a n4sch:Estudiante;
+  n4sch:Es_amigo_de n4ind:26;
+  n4sch:name "Andrea";
+  n4sch:Ve n4ind:15;
+  n4sch:Estudia_en n4ind:1 .
+
+n4ind:26 a n4sch:Estudiante;
+  n4sch:name "Julio";
+  n4sch:Ve n4ind:15;
+  n4sch:Estudia_en n4ind:2 .
+
+n4ind:25 a n4sch:Estudiante;
+  n4sch:Ve n4ind:15;
+  n4sch:name "Paula";
+  n4sch:Estudia_en n4ind:2 .
+
+n4ind:27 a n4sch:Estudiante;
+  n4sch:Ve n4ind:15;
+  n4sch:name "Angelina";
+  n4sch:Estudia_en n4ind:2 .
