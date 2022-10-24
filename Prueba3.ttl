@@ -1,4 +1,4 @@
-@@prefix n4sch: <neo4j://graph.schema#> .
+@prefix n4sch: <neo4j://graph.schema#> .
 @prefix n4ind: <neo4j://graph.individuals#> .
 
 
